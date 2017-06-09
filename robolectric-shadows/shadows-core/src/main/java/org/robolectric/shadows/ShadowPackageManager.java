@@ -228,7 +228,7 @@ public class ShadowPackageManager implements RobolectricPackageManager {
     throw new UnsupportedOperationException("Not implemented");
   }
 
-  public void setApplicationEnabledSetting(String packageName, int newState, int flags) {
+  @Override public void setApplicationEnabledSetting(String packageName, int newState, int flags) {
     RuntimeEnvironment.getRobolectricPackageManager().setApplicationEnabledSetting(packageName, newState, flags);
   }
 
@@ -382,7 +382,7 @@ public class ShadowPackageManager implements RobolectricPackageManager {
     return getDelegatePackageManager().queryBroadcastReceivers(intent, flags, userId);
   }
 
-  @Implementation
+  @Override @Implementation
   public PackageInfo getPackageArchiveInfo(String archiveFilePath, int flags) {
     return getDelegatePackageManager().getPackageArchiveInfo(archiveFilePath, flags);
   }
